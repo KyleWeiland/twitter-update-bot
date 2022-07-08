@@ -1,22 +1,19 @@
-import auth
-import helpers as h
-import os
+import helpers
+#import os
+import actions
 
-os.system("cls")
+min = 0
+max = 300
 
-today = h.get_weekday()
+#os.system("cls")
 
-if today == 0:
-    # Monday
-    print("Monday")
+today = helpers.get_weekday()
 
-elif today == 2:
-    # Wednesday
-    print("Wednesday")
-
-elif today == 4:
-    # Friday
-    print("Friday")
+if today.postDay:
+    actions.random_wait(min, max)
+    result = actions.post_tweet(today)
 
 else:
-    print("Not Hotdog")
+    result = f"Today is {today.dayStr}. Therefore, Not Hotdog"
+
+print(result)
