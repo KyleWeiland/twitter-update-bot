@@ -1,26 +1,22 @@
-from pydoc import cli
-from urllib import response
-import tweepy
 import auth
+import helpers as h
+import os
 
-client = auth.get_client()
+os.system("cls")
 
-# Create Tweet
+today = h.get_weekday()
 
-# The app and the corresponding credentials must have the Write permission
+if today == 0:
+    # Monday
+    print("Monday")
 
-# Check the App permissions section of the Settings tab of your app, under the
-# Twitter Developer Portal Projects & Apps page at
-# https://developer.twitter.com/en/portal/projects-and-apps
+elif today == 2:
+    # Wednesday
+    print("Wednesday")
 
-# Make sure to reauthorize your app / regenerate your access token and secret 
-# after setting the Write permission
+elif today == 4:
+    # Friday
+    print("Friday")
 
-# response = client.create_tweet(
-#     text="This Tweet was Tweeted using Tweepy and Twitter API v2!"
-# )
-# print(f"https://twitter.com/user/status/{response.data['id']}")
-
-response = client.get_tweet(1545453590130606083)
-
-print(response.data['text'])
+else:
+    print("Not Hotdog")
