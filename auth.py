@@ -15,3 +15,12 @@ def get_client():
     )
     return client
 
+def get_api():
+    # authorization of consumer key and consumer secret
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    
+    # set access to user's access key and access secret 
+    auth.set_access_token(access_token, access_token_secret)
+    
+    # calling the api 
+    return tweepy.API(auth)
